@@ -60,12 +60,31 @@
 
         /* DAY FILTER */
 
+        .filters {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 35px;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .filter-label {
+            color: var(--muted);
+            font-weight: bold;
+        }
+
         .day-filter {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 35px;
         }
 
         .day-button {
@@ -159,7 +178,17 @@
             font-weight: bold;
         }
 
-                .modal.open {
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .modal.open {
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -284,7 +313,16 @@
 
 <main class="container">
 
-    <div id="dayFilter" class="day-filter"></div>
+    <div class="filters">
+        <div class="filter-group">
+            <span class="filter-label">Ημέρα:</span>
+            <div id="dayFilter" class="day-filter"></div>
+        </div>
+        <div class="filter-group">
+            <span class="filter-label">Τάξη:</span>
+            <div id="classFilter" class="day-filter"></div>
+        </div>
+    </div>
 
     <div id="status">
         Φόρτωση ομίλων...
@@ -318,6 +356,7 @@
             <div class="club-info">
                 <span id="modalTeacher" class="label"></span>
                 <span id="modalDay" class="label"></span>
+                <span id="modalClasses" class="label" style="display: none"></span>
             </div>
 
             <div
@@ -340,6 +379,7 @@
 
 let clubs = [];
 let activeDay = "Όλοι";
+let activeClass = "Όλες";
 
 
 /*
@@ -452,6 +492,7 @@ async function loadClubs() {
         document.getElementById("status").style.display = "none";
 
         createDayFilters();
+        createClassFilters();
         displayClubs();
 
     }
@@ -500,31 +541,58 @@ function createDayFilters() {
 
     filter.innerHTML = "";
 
-    createDayButton("Όλοι", filter);
+    createFilterButton("Όλοι", activeDay, filter, value => {
+        activeDay = value;
+    });
 
     days.forEach(day => {
-        createDayButton(day, filter);
+        createFilterButton(day, activeDay, filter, value => {
+            activeDay = value;
+        });
     });
 
 }
 
+function createClassFilters() {
 
-function createDayButton(day, container) {
+    const availableClasses = [
+        ...new Set(clubs.flatMap(club =>
+            Array.isArray(club.classes) ? club.classes : []
+        ))
+    ];
+
+    const filter = document.getElementById("classFilter");
+
+    filter.innerHTML = "";
+
+    createFilterButton("Όλες", activeClass, filter, value => {
+        activeClass = value;
+    });
+
+    availableClasses.forEach(className => {
+        createFilterButton(className, activeClass, filter, value => {
+            activeClass = value;
+        });
+    });
+
+}
+
+function createFilterButton(value, activeValue, container, onSelect) {
 
     const button = document.createElement("button");
 
-    button.textContent = day;
+    button.textContent = value;
     button.className = "day-button";
 
-    if (day === activeDay) {
+    if (value === activeValue) {
         button.classList.add("active");
     }
 
     button.addEventListener("click", () => {
 
-        activeDay = day;
+        onSelect(value);
 
-        document
+        container
             .querySelectorAll(".day-button")
             .forEach(btn => btn.classList.remove("active"));
 
@@ -551,10 +619,11 @@ function displayClubs() {
 
     grid.innerHTML = "";
 
-    const filteredClubs =
-    activeDay === "Όλοι"
-        ? clubs
-        : clubs.filter(club => club.days.includes(activeDay));
+    const filteredClubs = clubs.filter(club =>
+        (activeDay === "Όλοι" || club.days.includes(activeDay)) &&
+        (activeClass === "Όλες" ||
+            (Array.isArray(club.classes) && club.classes.includes(activeClass)))
+    );
 
 
     filteredClubs.forEach(club => {
@@ -605,17 +674,24 @@ function displayClubs() {
 
         const day = document.createElement("span");
         day.className = "label";
-        day.textContent = "📅 " + club.day;
+        day.textContent = "📅 " + club.days.join(" & ");
 
 
         info.appendChild(teacher);
         info.appendChild(day);
 
+        if (Array.isArray(club.classes) && club.classes.length > 0) {
+            const classes = document.createElement("span");
+            classes.className = "label";
+            classes.textContent = "🎓 " + club.classes.join(" & ");
+            info.appendChild(classes);
+        }
+
 
         const description = document.createElement("div");
 
         description.className = "club-description";
-        description.textContent = club.short_description;
+        description.textContent = club.shortDescription;
 
 
         const more = document.createElement("div");
@@ -663,7 +739,16 @@ function openModal(club) {
         .textContent = "👤 " + club.teacher;
 
     document.getElementById("modalDay")
-        .textContent = "📅 " + club.day;
+    .textContent = "📅 " + club.days.join(" & ");
+
+    const modalClasses = document.getElementById("modalClasses");
+    if (Array.isArray(club.classes) && club.classes.length > 0) {
+        modalClasses.textContent = "🎓 " + club.classes.join(" & ");
+        modalClasses.style.display = "";
+    }
+    else {
+        modalClasses.style.display = "none";
+    }
 
     document.getElementById("modalDescription")
         .textContent = club.description;
