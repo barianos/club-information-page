@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Όμιλοι Σχολείου</title>
+ 
+
+    <style>
+        :root {
+            --primary: #1e5b8f;
+            --primary-dark: #17476f;
+            --background: #f4f6f8;
+            --text: #27323b;
+            --muted: #64748b;
+            --card: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+        }
+
+        /* HEADER */
+
+        header {
+            background: linear-gradient(135deg, #17476f, #2473ad);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 2.3rem;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1.05rem;
+        }
+
+
+        /* PAGE */
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px 20px 60px;
+        }
+
+
+        /* DAY FILTER */
+
+        .day-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .day-button {
+            border: 0;
+            background: white;
+            color: var(--primary);
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+
+            transition: 0.2s;
+        }
+
+        .day-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .day-button.active {
+            background: var(--primary);
+            color: white;
+        }
+
+
+         /* CARDS */
+
+        .clubs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .club-card {
+            background: var(--card);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .club-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.13);
+        }
+
+        .club-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .club-content {
+            padding: 20px;
+        }
+
+        .club-content h2 {
+            margin: 0 0 12px;
+            font-size: 1.35rem;
+            color: var(--primary-dark);
+        }
+
+        .club-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .label {
+            background: #eaf2f8;
+            color: var(--primary-dark);
+            padding: 6px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .club-description {
+            color: #53616c;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .more {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+                .modal.open {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 750px;
+
+            margin: 40px auto;
+            border-radius: 15px;
+            overflow: hidden;
+
+            position: relative;
+
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-body h2 {
+            margin-top: 0;
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+        }
+
+        .modal-description {
+            line-height: 1.7;
+            margin-top: 20px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+
+            width: 38px;
+            height: 38px;
+
+            border: 0;
+            border-radius: 50%;
+
+            background: rgba(0,0,0,0.65);
+            color: white;
+
+            font-size: 22px;
+            cursor: pointer;
+        }
+       
+         /* VIDEO */
+
+        .modal-video {
+            margin-top: 25px;
+        }
+
+        .modal-video video {
+            width: 100%;
+            border-radius: 10px;
+            background: black;
+        }
+
+        /* LOADING */
+
+        #status {
+            text-align: center;
+            padding: 40px;
+            color: var(--muted);
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 30px 15px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 20px 15px 40px;
+            }
+
+            .clubs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                padding: 10px;
+            }
+
+            .modal-content {
+                margin: 15px auto;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
+    </head>
+
+    <body>
+
+<header>
+    <h1>Όμιλοι Σχολείου</h1>
+    <p>Ανακαλύψτε τους ομίλους και τις δραστηριότητες του σχολείου μας</p>
+</header>
+
+
+<main class="container">
+
+    <div id="dayFilter" class="day-filter"></div>
+
+    <div id="status">
+        Φόρτωση ομίλων...
+    </div>
+
+    <div id="clubsGrid" class="clubs-grid"></div>
+
+</main>
+
+<!-- DETAILS MODAL -->
+
+<div id="clubModal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close" onclick="closeModal()">
+            &times;
+        </button>
+
+        <img
+            id="modalImage"
+            class="modal-image"
+            src=""
+            alt=""
+        >
+
+        <div class="modal-body">
+
+            <h2 id="modalTitle"></h2>
+
+            <div class="club-info">
+                <span id="modalTeacher" class="label"></span>
+                <span id="modalDay" class="label"></span>
+            </div>
+
+            <div
+                id="modalDescription"
+                class="modal-description">
+            </div>
+
+            <div
+                id="modalVideo"
+                class="modal-video">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+let clubs = [];
+let activeDay = "Όλοι";
+
+
+/*
+ --------------------------------------------------
+ CSV PARSER
+ --------------------------------------------------
+
+ This small parser supports quoted CSV values,
+ including commas inside quotes.
+
+ Example:
+
+ "This description, contains a comma"
+
+ --------------------------------------------------
+*/
+
+function parseCSV(text) {
+
+    const rows = [];
+    let row = [];
+    let field = "";
+    let insideQuotes = false;
+
+    for (let i = 0; i < text.length; i++) {
+
+        const char = text[i];
+        const nextChar = text[i + 1];
+
+        if (char === '"') {
+
+            if (insideQuotes && nextChar === '"') {
+                field += '"';
+                i++;
+            }
+            else {
+                insideQuotes = !insideQuotes;
+            }
+
+        }
+        else if (char === ',' && !insideQuotes) {
+
+            row.push(field.trim());
+            field = "";
+
+        }
+        else if (
+            (char === '\n' || char === '\r') &&
+            !insideQuotes
+        ) {
+
+            if (char === '\r' && nextChar === '\n') {
+                i++;
+            }
+
+            row.push(field.trim());
+            field = "";
+
+            if (row.some(value => value !== "")) {
+                rows.push(row);
+            }
+
+            row = [];
+
+        }
+        else {
+
+            field += char;
+
+        }
+    }
+        if (field.length > 0 || row.length > 0) {
+        row.push(field.trim());
+        rows.push(row);
+    }
+
+    const headers = rows.shift();
+
+    return rows.map(row => {
+
+        const obj = {};
+
+        headers.forEach((header, index) => {
+            obj[header.trim()] = row[index] || "";
+        });
+
+        return obj;
+
+    });
+
+}
+
+/*
+ --------------------------------------------------
+ LOAD CLUBS
+ --------------------------------------------------
+*/
+
+async function loadClubs() {
+
+    try {
+
+        const response = await fetch("clubs.json");
+        
+        if (!response.ok) {
+            throw new Error("Could not load clubs.csv");
+        }
+        clubs = await response.json();
+
+        document.getElementById("status").style.display = "none";
+
+        createDayFilters();
+        displayClubs();
+
+    }
+    catch (error) {
+
+        console.error(error);
+
+        document.getElementById("status").innerHTML =
+            "Δεν ήταν δυνατή η φόρτωση των ομίλων.";
+
+    }
+
+}
+
+/*
+ --------------------------------------------------
+ DAY FILTERS
+ --------------------------------------------------
+*/
+
+function createDayFilters() {
+
+    const preferredOrder = [
+        "Δευτέρα",
+        "Τρίτη",
+        "Τετάρτη",
+        "Πέμπτη",
+        "Παρασκευή"
+    ];
+
+    const availableDays =
+        [...new Set(clubs.map(club => club.day))];
+
+    const days = preferredOrder.filter(
+        day => availableDays.includes(day)
+    );
+
+    // Also include unexpected values
+    availableDays.forEach(day => {
+        if (!days.includes(day)) {
+            days.push(day);
+        }
+    });
+
+    const filter = document.getElementById("dayFilter");
+
+    filter.innerHTML = "";
+
+    createDayButton("Όλοι", filter);
+
+    days.forEach(day => {
+        createDayButton(day, filter);
+    });
+
+}
+
+
+function createDayButton(day, container) {
+
+    const button = document.createElement("button");
+
+    button.textContent = day;
+    button.className = "day-button";
+
+    if (day === activeDay) {
+        button.classList.add("active");
+    }
+
+    button.addEventListener("click", () => {
+
+        activeDay = day;
+
+        document
+            .querySelectorAll(".day-button")
+            .forEach(btn => btn.classList.remove("active"));
+
+        button.classList.add("active");
+
+        displayClubs();
+
+    });
+
+    container.appendChild(button);
+
+}
+
+
+/*
+ --------------------------------------------------
+ DISPLAY CARDS
+ --------------------------------------------------
+*/
+
+function displayClubs() {
+
+    const grid = document.getElementById("clubsGrid");
+
+    grid.innerHTML = "";
+
+    const filteredClubs =
+        activeDay === "Όλοι"
+            ? clubs
+            : clubs.filter(club => club.day === activeDay);
+
+
+    filteredClubs.forEach(club => {
+
+        const card = document.createElement("article");
+
+        card.className = "club-card";
+
+
+        /*
+         IMAGE
+        */
+
+        if (club.image) {
+
+            const image = document.createElement("img");
+
+            image.src = club.image;
+            image.alt = club.title;
+            image.className = "club-image";
+
+            card.appendChild(image);
+
+        }
+
+
+        /*
+         CARD CONTENT
+        */
+
+        const content = document.createElement("div");
+
+        content.className = "club-content";
+
+
+        const title = document.createElement("h2");
+        title.textContent = club.title;
+
+
+        const info = document.createElement("div");
+        info.className = "club-info";
+
+
+        const teacher = document.createElement("span");
+        teacher.className = "label";
+        teacher.textContent = "👤 " + club.teacher;
+
+
+        const day = document.createElement("span");
+        day.className = "label";
+        day.textContent = "📅 " + club.day;
+
+
+        info.appendChild(teacher);
+        info.appendChild(day);
+
+
+        const description = document.createElement("div");
+
+        description.className = "club-description";
+        description.textContent = club.short_description;
+
+
+        const more = document.createElement("div");
+
+        more.className = "more";
+        more.textContent = "Περισσότερα →";
+
+
+        content.appendChild(title);
+        content.appendChild(info);
+        content.appendChild(description);
+        content.appendChild(more);
+
+        card.appendChild(content);
+
+                card.addEventListener("click", () => {
+            openModal(club);
+        });
+
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+/*
+ --------------------------------------------------
+ MODAL
+ --------------------------------------------------
+*/
+
+function openModal(club) {
+
+    const modal = document.getElementById("clubModal");
+
+    const modalImage =
+        document.getElementById("modalImage");
+
+
+    document.getElementById("modalTitle")
+        .textContent = club.title;
+
+    document.getElementById("modalTeacher")
+        .textContent = "👤 " + club.teacher;
+
+    document.getElementById("modalDay")
+        .textContent = "📅 " + club.day;
+
+    document.getElementById("modalDescription")
+        .textContent = club.description;
+
+   /*
+     IMAGE
+    */
+
+    if (club.image) {
+
+        modalImage.src = club.image;
+        modalImage.alt = club.title;
+        modalImage.style.display = "block";
+
+    }
+    else {
+
+        modalImage.style.display = "none";
+
+    }
+
+     /*
+     VIDEO
+    */
+
+    const videoContainer =
+        document.getElementById("modalVideo");
+
+    videoContainer.innerHTML = "";
+
+
+    if (club.video) {
+
+        const video = document.createElement("video");
+
+        video.src = club.video;
+        video.controls = true;
+        video.preload = "metadata";
+
+        videoContainer.appendChild(video);
+
+    }
+
+
+    modal.classList.add("open");
+
+    document.body.style.overflow = "hidden";
+
+}/*
+ --------------------------------------------------
+ CLOSE MODAL
+ --------------------------------------------------
+*/
+
+function closeModal() {
+
+    const modal =
+        document.getElementById("clubModal");
+
+    modal.classList.remove("open");
+
+    document.body.style.overflow = "";
+
+
+    // Stop video when modal closes
+
+    const video = modal.querySelector("video");
+
+    if (video) {
+        video.pause();
+    }
+
+}
+
+
+/*
+ Close when user clicks outside the box
+*/
+
+document
+    .getElementById("clubModal")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            closeModal();
+        }
+
+    });
+
+
+/*
+ Close with Escape
+*/
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+        closeModal();
+    }
+
+});
+
+
+/*
+ Start
+*/
+
+loadClubs();
+
+</script>
+
+</body>
+</html>
