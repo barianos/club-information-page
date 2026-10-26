@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-labelledby="title desc">
+  <title id="title">Theatre Lab - Θεατρικό εργαστήρι στα Αγγλικά</title>
+  <desc id="desc">A bright theatre stage with curtains, a performer, and an English speech bubble</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#102a43"/>
+      <stop offset="1" stop-color="#214d68"/>
+    </linearGradient>
+    <linearGradient id="curtain" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#b8324b"/>
+      <stop offset=".5" stop-color="#ef5b62"/>
+      <stop offset="1" stop-color="#b8324b"/>
+    </linearGradient>
+    <linearGradient id="spotlight" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#fff0b5" stop-opacity=".65"/>
+      <stop offset="1" stop-color="#fff0b5" stop-opacity=".03"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#c77a57"/>
+      <stop offset="1" stop-color="#713e4c"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="360" rx="28" fill="url(#bg)"/>
+  <circle cx="520" cy="65" r="98" fill="#f1b95b" opacity=".1"/>
+  <circle cx="65" cy="305" r="105" fill="#ef5b62" opacity=".12"/>
+
+  <rect x="67" y="51" width="466" height="264" rx="18" fill="#081a2b" opacity=".5"/>
+  <rect x="82" y="65" width="436" height="232" rx="12" fill="#d99b54"/>
+  <rect x="91" y="74" width="418" height="214" rx="8" fill="#172c43"/>
+  <rect x="112" y="104" width="376" height="160" fill="#24384b"/>
+  <path d="M300 83 185 263h230z" fill="url(#spotlight)"/>
+  <circle cx="300" cy="91" r="8" fill="#fff0b5"/>
+
+  <path d="M105 78h390v32c-24-4-37 11-59 9-23-2-31-14-55-11-24 3-32 13-56 11-25-2-32-13-56-11-25 2-34 14-58 11-23-3-36-14-59-10-18 3-29 11-47 10z" fill="url(#curtain)"/>
+  <path d="M105 78c17 31 16 65 11 103-4 29-10 53-11 83 24-9 40-27 48-53 11-38 6-84-12-133z" fill="url(#curtain)"/>
+  <path d="M495 78c-17 31-16 65-11 103 4 29 10 53 11 83-24-9-40-27-48-53-11-38-6-84 12-133z" fill="url(#curtain)"/>
+  <g fill="none" stroke="#ff9a83" stroke-linecap="round" opacity=".5">
+    <path d="M123 87c14 31 14 69 7 105-4 22-8 42-13 55m28-162c13 35 13 72 6 106-3 16-7 31-11 44" stroke-width="3"/>
+    <path d="M477 87c-14 31-14 69-7 105 4 22 8 42 13 55m-28-162c-13 35-13 72-6 106 3 16 7 31 11 44" stroke-width="3"/>
+  </g>
+
+  <path d="M125 264h350l22 31H103z" fill="url(#floor)"/>
+  <path d="M119 264h362" stroke="#ffd28b" stroke-width="4"/>
+  <path d="m154 271 13 21m58-21 7 21m156-21-7 21m58-21-13 21" stroke="#f3b77c" stroke-width="2" opacity=".55"/>
+
+  <g>
+    <ellipse cx="302" cy="251" rx="24" ry="5" fill="#1a2333" opacity=".38"/>
+    <circle cx="302" cy="183" r="12" fill="#ffd2a1"/>
+    <path d="M291 181c1-13 22-15 23 1-7-5-15-5-23-1z" fill="#25334a"/>
+    <path d="M290 198q12-8 24 0l9 38h-42z" fill="#f6c65f"/>
+    <path d="m290 204-18 20 5 4 21-15m18-8 14 17-5 4-18-13" fill="none" stroke="#ffd2a1" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="m291 235-6 17m24-17 7 17" fill="none" stroke="#25334a" stroke-width="8" stroke-linecap="round"/>
+    <path d="M279 215h-18v22h18" fill="#fff7e8" stroke="#d7e4ee" stroke-width="2"/>
+    <path d="M264 221h10m-10 5h8m-8 5h9" stroke="#46657d" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <path d="M340 128h118a15 15 0 0 1 15 15v31a15 15 0 0 1-15 15h-48l-17 14 3-14h-56a15 15 0 0 1-15-15v-31a15 15 0 0 1 15-15z" fill="#fff7e8"/>
+    <text x="399" y="165" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing=".6" fill="#16364e">HELLO!</text>
+    <path d="M358 174h82" stroke="#f1b95b" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <rect x="30" y="28" width="106" height="29" rx="14.5" fill="#fff0b5" opacity=".16"/>
+  <circle cx="48" cy="42.5" r="5" fill="#ffd276"/>
+  <text x="61" y="48" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#fff0c5">SCHOOL CLUB</text>
+  <rect x="363" y="308" width="199" height="36" rx="18" fill="#fff0b5" opacity=".15"/>
+  <text x="462" y="331" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.1" fill="#fff0c5">ENGLISH THEATRE LAB</text>
+</svg>

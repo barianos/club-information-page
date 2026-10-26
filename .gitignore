@@ -1,6 +1,9 @@
 clubs.json
 /images/*
 !/images/favicon.png
+!/images/club-02-theatre.svg
+!/images/club-15-theatre.svg
+!/images/club-36-algebra.svg
 !/images/club-34-waves.svg
 !/images/club-42-physics.svg
 /video/*

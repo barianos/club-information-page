@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-labelledby="title desc">
+  <title id="title">Ενισχυτική διδασκαλία στην Άλγεβρα Β΄ Λυκείου</title>
+  <desc id="desc">Μάθημα Άλγεβρας με εξίσωση σε σχολικό πίνακα και καθοδηγούμενη επίλυση</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e8f1ff"/>
+      <stop offset="1" stop-color="#fff8e8"/>
+    </linearGradient>
+    <linearGradient id="board" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#183f45"/>
+      <stop offset="1" stop-color="#24575a"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#c9864b"/>
+      <stop offset="1" stop-color="#8d5538"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="360" rx="28" fill="url(#bg)"/>
+  <circle cx="522" cy="72" r="96" fill="#f59e0b" opacity=".09"/>
+  <circle cx="65" cy="310" r="104" fill="#2563eb" opacity=".08"/>
+
+  <rect x="65" y="56" width="470" height="250" rx="18" fill="#163b46" opacity=".12"/>
+  <rect x="77" y="48" width="446" height="245" rx="14" fill="url(#wood)"/>
+  <rect x="91" y="62" width="418" height="208" rx="8" fill="url(#board)"/>
+
+  <text x="300" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="2" fill="#b8d5c9">ΑΛΓΕΒΡΑ · Β΄ ΛΥΚΕΙΟΥ</text>
+  <path d="M132 121h336" stroke="#c7dfce" stroke-width="2" opacity=".45"/>
+  <text x="300" y="176" text-anchor="middle" font-family="Arial,sans-serif" font-size="39" font-weight="700" fill="#fff6da">x + 4 = 10</text>
+  <path d="M194 193h212" stroke="#f4c767" stroke-width="3" stroke-linecap="round"/>
+  <text x="300" y="233" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#f4d184">x = 10 − 4 = 6</text>
+
+  <rect x="113" y="275" width="84" height="8" rx="4" fill="#704530"/>
+  <rect x="128" y="266" width="34" height="7" rx="3.5" fill="#fff3d5" transform="rotate(-8 128 266)"/>
+  <rect x="171" y="267" width="22" height="6" rx="3" fill="#d5e9df" transform="rotate(7 171 267)"/>
+
+  <g>
+    <path d="M450 119h87a13 13 0 0 1 13 13v27a13 13 0 0 1-13 13h-28l-13 12 2-12h-48a13 13 0 0 1-13-13v-27a13 13 0 0 1 13-13z" fill="#fff"/>
+    <text x="493" y="152" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#264653">Βήμα 1</text>
+  </g>
+
+  <rect x="30" y="28" width="106" height="29" rx="14.5" fill="#1d4ed8" opacity=".12"/>
+  <circle cx="48" cy="42.5" r="5" fill="#1d4ed8"/>
+  <text x="61" y="48" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#1e3a8a">SCHOOL CLUB</text>
+  <rect x="350" y="309" width="212" height="36" rx="18" fill="#1d4ed8" opacity=".1"/>
+  <text x="456" y="332" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1" fill="#1e3a8a">ALGEBRA TUTORING</text>
+</svg>
