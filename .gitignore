@@ -1,3 +1,6 @@
 clubs.json
 /images/*
+!/images/favicon.png
+!/images/club-34-waves.svg
+!/images/club-42-physics.svg
 /video/*

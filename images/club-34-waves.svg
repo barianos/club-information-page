@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-labelledby="title desc">
+  <title id="title">Κύματα και ταλαντώσεις στη Φυσική</title>
+  <desc id="desc">Ένα ελατήριο με ταλαντούμενο σώμα και ένα εγκάρσιο κύμα με σημειωμένο μήκος κύματος και πλάτος.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#092e43"/>
+      <stop offset="1" stop-color="#155b69"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#66e3d4"/>
+      <stop offset="1" stop-color="#8cceff"/>
+    </linearGradient>
+    <marker id="measure" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse">
+      <path d="M7 0 0 3.5 7 7" fill="none" stroke="#ffda78" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <rect width="600" height="360" rx="28" fill="url(#background)"/>
+  <g fill="#d9f6ff" opacity=".62">
+    <circle cx="538" cy="57" r="2"/>
+    <circle cx="487" cy="118" r="1.5"/>
+    <circle cx="382" cy="72" r="1.5"/>
+    <circle cx="76" cy="95" r="2"/>
+    <circle cx="552" cy="246" r="1.5"/>
+  </g>
+
+  <rect x="28" y="25" width="174" height="32" rx="16" fill="#ffffff" fill-opacity=".1"/>
+  <circle cx="46" cy="41" r="5" fill="#ffda78"/>
+  <text x="60" y="46" fill="#f2fbff" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1">ΦΥΣΙΚΗ · Γ΄ ΛΥΚΕΙΟΥ</text>
+
+  <text x="54" y="102" fill="#d9edf5" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="1.3">ΤΑΛΑΝΤΩΣΗ ΕΛΑΤΗΡΙΟΥ</text>
+  <path d="M58 167h24l8-15 12 30 12-30 12 30 12-30 12 30 12-30 12 30 12-30 12 15h21" fill="none" stroke="#ffda78" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M217 139v56" stroke="#dcecf2" stroke-width="3"/>
+  <rect x="218" y="150" width="45" height="34" rx="5" fill="#7bded2"/>
+  <path d="M273 167h35" stroke="#dcecf2" stroke-width="1.7" stroke-dasharray="5 5"/>
+  <path d="M277 151v-11m0 44v11" stroke="#ffda78" stroke-width="2"/>
+  <path d="M273 145l4-5 4 5m-8 49 4 6 4-6" fill="none" stroke="#ffda78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="290" y="174" fill="#ffda78" font-family="Georgia,serif" font-size="16" font-style="italic">x</text>
+
+  <path d="M54 232H548" fill="none" stroke="#d7eaf2" stroke-opacity=".3" stroke-width="1.5" stroke-dasharray="5 6"/>
+  <path d="M55 232 C78 232 84 202 107 202 S136 262 160 262 S190 202 214 202 S244 262 268 262 S298 202 322 202 S352 262 376 262 S406 202 430 202 S460 262 484 262 S514 202 538 232" fill="none" stroke="url(#wave)" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M107 184H214" stroke="#ffda78" stroke-width="1.7" marker-start="url(#measure)" marker-end="url(#measure)"/>
+  <text x="160" y="178" text-anchor="middle" fill="#ffda78" font-family="Georgia,serif" font-size="18" font-style="italic" font-weight="700">λ</text>
+  <path d="M92 202V232" stroke="#ffda78" stroke-width="1.7" marker-start="url(#measure)" marker-end="url(#measure)"/>
+  <text x="78" y="222" fill="#ffda78" font-family="Georgia,serif" font-size="16" font-style="italic" font-weight="700">A</text>
+
+  <rect x="52" y="300" width="493" height="35" rx="17.5" fill="#ffffff" fill-opacity=".1"/>
+  <text x="298" y="323" text-anchor="middle" fill="#e4f3f6" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing=".6">ΕΛΑΤΗΡΙΑ  ·  ΤΑΛΑΝΤΩΣΕΙΣ  ·  ΚΥΜΑΤΑ</text>
+</svg>

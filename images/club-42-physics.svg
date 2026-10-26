@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-labelledby="title desc">
+  <title id="title">Νευτώνεια φυσική: κίνηση και βαρύτητα</title>
+  <desc id="desc">Ένα μήλο πέφτει με επιτάχυνση g, ενώ ένα σώμα κινείται σε τροχιά γύρω από τη Γη. Παρουσιάζεται ο νόμος F ίσον ma.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#101d37"/>
+      <stop offset="1" stop-color="#203c5a"/>
+    </linearGradient>
+    <linearGradient id="earth" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#55c5bd"/>
+      <stop offset="1" stop-color="#247a91"/>
+    </linearGradient>
+    <linearGradient id="apple" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ff8666"/>
+      <stop offset="1" stop-color="#df4055"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0 0 8 4 0 8z" fill="#ffd166"/>
+    </marker>
+    <marker id="orbit-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0 0 8 4 0 8z" fill="#75ded3"/>
+    </marker>
+  </defs>
+
+  <rect width="600" height="360" rx="28" fill="url(#sky)"/>
+  <path d="M0 292h600" stroke="#9ab1c7" stroke-opacity=".28" stroke-width="2"/>
+  <path d="M0 308h600M0 326h600" stroke="#9ab1c7" stroke-opacity=".12"/>
+  <g fill="#dbeafe" opacity=".65">
+    <circle cx="234" cy="76" r="2"/><circle cx="285" cy="119" r="1.5"/>
+    <circle cx="353" cy="73" r="2"/><circle cx="555" cy="148" r="1.5"/>
+    <circle cx="335" cy="177" r="1.5"/><circle cx="67" cy="131" r="2"/>
+  </g>
+
+  <rect x="28" y="25" width="178" height="32" rx="16" fill="#ffffff" fill-opacity=".1"/>
+  <circle cx="46" cy="41" r="5" fill="#ffd166"/>
+  <text x="60" y="46" fill="#f5f7fb" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.1">ΝΕΥΤΩΝΕΙΑ ΦΥΣΙΚΗ</text>
+
+  <path d="M156 126 Q190 178 218 270" fill="none" stroke="#ffd166" stroke-width="3" stroke-dasharray="7 8" opacity=".75" marker-end="url(#arrow)"/>
+  <g transform="translate(139 117)">
+    <path d="M20 13c-7-8-20-4-20 9 0 15 14 25 20 28 7-3 21-13 21-28 0-13-13-17-21-9z" fill="url(#apple)"/>
+    <path d="M20 13c-2-8 0-14 6-18" fill="none" stroke="#d4a373" stroke-width="4" stroke-linecap="round"/>
+    <path d="M26 0c8-7 16-3 16 4-7 3-13 2-16-4z" fill="#72c58b"/>
+    <path d="M11 22c2-5 5-7 9-8" fill="none" stroke="#ffd8cb" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+  </g>
+  <path d="M117 157v68" stroke="#ffd166" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="99" y="197" fill="#ffd166" font-family="Arial,sans-serif" font-size="17" font-style="italic" font-weight="700">g</text>
+  <text x="76" y="266" fill="#d7e2ee" font-family="Arial,sans-serif" font-size="12">πτώση</text>
+
+  <ellipse cx="416" cy="213" rx="139" ry="54" transform="rotate(-19 416 213)" fill="none" stroke="#75ded3" stroke-width="2.5" stroke-dasharray="8 7" opacity=".8" marker-end="url(#orbit-arrow)"/>
+  <circle cx="416" cy="220" r="70" fill="url(#earth)"/>
+  <path d="M357 207q22-23 42-10t32-1q19-14 39-2l20 20q-23 3-32 23t-36 16q-19-13-36-6l-24-15z" fill="#a4d795" opacity=".95"/>
+  <path d="M378 164q25-16 50-13" fill="none" stroke="#d6fff4" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+  <circle cx="298" cy="177" r="8" fill="#ffd166" stroke="#fff4ce" stroke-width="2"/>
+
+  <rect x="438" y="30" width="132" height="64" rx="15" fill="#fff" fill-opacity=".1" stroke="#fff" stroke-opacity=".18"/>
+  <text x="504" y="57" text-anchor="middle" fill="#ffd166" font-family="Georgia,serif" font-size="26" font-weight="700">F = ma</text>
+  <text x="504" y="78" text-anchor="middle" fill="#d7e2ee" font-family="Arial,sans-serif" font-size="11">δύναμη · μάζα · επιτάχυνση</text>
+
+  <rect x="28" y="312" width="310" height="29" rx="14.5" fill="#fff" fill-opacity=".1"/>
+  <text x="183" y="331" text-anchor="middle" fill="#dce8f4" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing=".5">ΚΙΝΗΣΗ  ·  ΔΥΝΑΜΕΙΣ  ·  ΒΑΡΥΤΗΤΑ</text>
+</svg>
